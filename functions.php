@@ -1,6 +1,22 @@
 <?php
 $is_auth = rand(0, 1);
 $user_name = 'Буиклы Олег'; // укажите здесь ваше имя
+
+
+
+//таймер
+date_default_timezone_set("Europe/Moscow");
+$ts = time();
+$secsInDay = 86400;
+$tsNight = strtotime('tomorrow');
+$secsToNight = $tsNight - $ts;
+
+$hours = floor($secsToNight / 3600);
+$minutes = floor(($secsToNight % 3600) / 60);
+$timer = $hours . " : " . $minutes;
+
+
+
 $category = [
     "boards" => "Доски и лыжи",
     "attachment" => "Крепления",
