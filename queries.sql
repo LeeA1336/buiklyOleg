@@ -1,4 +1,3 @@
-
 INSERT INTO categories SET allas = 'boards', title = 'Доски и лыжи';
 INSERT INTO categories SET allas = 'attachment', title = 'Крепления';
 INSERT INTO categories SET allas = 'boots', title = 'Ботинки';
@@ -21,4 +20,14 @@ INSERT INTO bets SET id = '13', bet_date = '', bet_price = '24', user_id = '3', 
 /* Получить список из всех категорий */
 SELECT title FROM categories;
 
-/*  */
+/* Получить лот по id */
+SELECT * FROM `lots` WHERE `id` = 1;
+
+/* Обчновление данных */
+UPDATE `lots` SET `title`='стон айланд' WHERE `id`=1;
+
+/* получить список самых свежих ставок для лота по его идентификатору */
+SELECT * FROM `bets` WHERE `bet_date` < (CURDATE() - INTERVAL 6 hour) AND `lot_id` = 1;
+
+/* получить самые новые, открытые лоты. */
+SELECT * FROM `lots` WHERE `date_create` > (CURDATE() - INTERVAL 1 day);
